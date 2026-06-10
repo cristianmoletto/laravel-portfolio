@@ -30,6 +30,12 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a href="{{ route('admin.projects.index') }}"
+                           class="nav-link link-light {{ request()->routeIs('admin.projects.*') ? 'active' : '' }}">
+                            <i class="bi bi-folder me-2"></i> Progetti
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a href="{{ route('admin.profile') }}"
                            class="nav-link link-light {{ request()->routeIs('admin.profile') ? 'active' : '' }}">
                             <i class="bi bi-person me-2"></i> Profilo
@@ -40,12 +46,14 @@
                 <div class="mt-auto">
                     <hr class="border-secondary">
                     <p class="text-secondary small mb-2">
-                        <i class="bi bi-person-circle me-1"></i> {{ Auth::user()->name }}
+                        <i class="bi bi-person-circle me-1"></i> 
+                        {{ Auth::user()->name }}
                     </p>
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
                         <button type="submit" class="btn btn-sm btn-outline-secondary w-100">
-                            <i class="bi bi-box-arrow-left me-1"></i> Logout
+                            <i class="bi bi-box-arrow-left me-1">
+                            </i> Logout
                         </button>
                     </form>
                 </div>
@@ -56,7 +64,9 @@
 
                 {{-- Top bar --}}
                 <nav class="navbar bg-white shadow-sm px-4 py-2">
-                    <span class="fw-semibold text-muted">@yield('page-title', 'Dashboard')</span>
+                    <span class="fw-semibold text-muted">
+                        @yield('page-title', 'Dashboard')
+                    </span>
                     <a href="{{ url('/') }}" class="btn btn-sm btn-outline-secondary ms-auto">
                         <i class="bi bi-globe me-1"></i> Vai al sito
                     </a>
@@ -65,7 +75,7 @@
                 {{-- Page content --}}
                 <main class="p-4 flex-grow-1">
                     @yield('content')
-                </main>4§§§§§§§§--------------------------------
+                </main>
 
             </div>
 

@@ -14,7 +14,7 @@
                     </div>
                     <div>
                         <div class="text-muted small">Progetti</div>
-                        <div class="fw-bold fs-5">0</div>
+                        <div class="fw-bold fs-5">{{ $projectsCount }}</div>
                     </div>
                 </div>
             </div>
