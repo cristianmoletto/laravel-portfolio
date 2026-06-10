@@ -36,6 +36,16 @@
                 <option value="{{ $category->id }}" {{ $project->category_id == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
             @endforeach
         </select>
+
+        <div class="form-control mb-3 d-flex flex-wrap">
+            @foreach ($tags as $tag)
+            <div class="tag me-2">
+                <input type="checkbox" name="tags[]" value="{{ $tag->id }}" id="tag-{{ $tag->id }}" {{ $project->tags->contains($tag->id) ? 'checked' : ''}}>
+                <label for="tag-{{ $tag->id }}">{{ $tag->name }}</label>
+            </div>
+            @endforeach
+        </div>
+
     
         <label for="title">Descrizione</label>
         <textarea type="text" name="description" id="description" width="100%" rows="4" class="mb-3">{{ $project->description }}</textarea>

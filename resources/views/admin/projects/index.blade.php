@@ -6,7 +6,7 @@
 
 <div class="d-flex justify-content-between align-items-center mb-4">
     <h4 class="mb-0">Elenco Progetti</h4>
-    <a href="{{ route('admin.projects.create') }}" class="btn btn-sm btn-primary">
+    <a href="{{ route('admin.projects.create') }}" class="btn btn-primary">
         &oplus; Nuovo progetto
     </a>
 </div>
@@ -33,8 +33,8 @@
                 <td>{{ $project->client }}</td>
                 <td>{{ $project->period }}</td>
                 <td>
-                    <a href="{{ route('admin.projects.show', $project) }}" class="btn btn-sm btn-outline-primary">
-                        Visualizza &#8594;
+                    <a href="{{ route('admin.projects.show', $project) }}" class="btn btn-sm btn-outline-secondary">
+                        Visualizza <i class="bi bi-arrow-right"></i>
                     </a>
                     
                 </td>

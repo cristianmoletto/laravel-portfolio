@@ -41,6 +41,18 @@
                             <i class="bi bi-person me-2"></i> Profilo
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href=""
+                           class="nav-link link-light {{ request()->routeIs('') ? 'active' : '' }}">
+                            <i class="bi bi-book me-2"></i> Categories
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href=""
+                           class="nav-link link-light {{ request()->routeIs('') ? 'active' : '' }}">
+                            <i class="bi bi-bookmarks me-2"></i> Tags
+                        </a>
+                    </li>
                 </ul>
 
                 <div class="mt-auto">

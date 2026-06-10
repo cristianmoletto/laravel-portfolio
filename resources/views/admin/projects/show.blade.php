@@ -28,15 +28,25 @@
 
             <dt class="col-sm-2">Descrizione</dt>
             <dd class="col-sm-10">{{ $project->description }}</dd>
+
+            <dt class="col-sm-2">Tags</dt>
+            <dd class="col-sm-10">
+                @forelse($project->tags as $tag)
+                    <span class="badge rounded-pill" style="background-color: {{ $tag->color }}">{{ $tag->name }}</span>
+                @empty
+                    Nessun tag
+                @endforelse
+            </dd>
+
         </dl>
         <div class="d-flex py-2 gap-2">
             <a href="{{ route('admin.projects.edit', $project) }}" class="btn btn-outline-primary">
-                &#9998; Modifica
+                <i class="bi bi-pencil-square"></i> Modifica
             </a>
 
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                &times; Elimina
+                <i class="bi bi-trash3"></i> Elimina
             </button>
         </div>
     </div>

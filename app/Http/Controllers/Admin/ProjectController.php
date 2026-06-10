@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Project;
+use App\Models\Tag;
 use Database\Seeders\CategoriesTableSeeder;
 use Illuminate\Http\Request;
 
@@ -26,8 +27,9 @@ class ProjectController extends Controller
     {
         // prendo le categorie
         $categories = Category::all();
+        $tags = Tag::all();
 
-        return view("admin.projects.create", compact("categories"));
+        return view("admin.projects.create", compact("categories","tags"));
     }
 
     /**
@@ -45,6 +47,14 @@ class ProjectController extends Controller
         $newProject->description = $data['description'];
 
         $newProject->save();
+
+        // verifichiamo se ci sono tags
+        if($request->has('tags')){
+            
+            // sync tags tabella
+            $newProject->tags()->attach($data['tags']);
+        }
+
 
         return redirect()->route('admin.projects.show', $newProject);
 
@@ -65,7 +75,9 @@ class ProjectController extends Controller
     public function edit(Project $project)
     {
         $categories = Category::all();
-        return view("admin.projects.edit", compact('project',"categories"));
+        $tags = Tag::all();
+
+        return view("admin.projects.edit", compact('project',"categories",'tags'));
     }
 
     /**
@@ -83,8 +95,18 @@ class ProjectController extends Controller
 
         $project->update();
 
-        return redirect()->route('admin.projects.show',$project);
+        // verifichiamo se ci sono tags
+        if($request->has('tags')){
+            
+            // sync tags tabella
+            $project->tags()->sync($data['tags']);
 
+        } else {
+            // se non ci sono i tags si tolgono i tags dalla tabella ponte
+            $project->tags()->detach();
+        }
+        
+        return redirect()->route('admin.projects.show',$project);
     }
 
     /**
