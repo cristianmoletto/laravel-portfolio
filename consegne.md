@@ -21,7 +21,24 @@ Procediamo al completamento delle operazioni CRUD sul modello Project:
 
 - [x] Prepariamo le rotte per le pagine di creazione e modifica dei progetti
 - [x] All'interno delle pagine, prepariamo i rispettivi form
-- [ ] Nella pagina di dettaglio del progetto, mostriamo la tipologia a cui il progetto appartiene (Web Design, Graphic Design, Back End...)
+- [x] Nella pagina di dettaglio del progetto, mostriamo la tipologia a cui il progetto appartiene (Web Design, Graphic Design, Back End...)
 - [x] Nel controller, inseriamo la logica per il salvataggio di un nuovo progetto, per la sua modifica e per l'eliminazione
 - [ ] Nella tabella della pagina index, dovremo inserire i pulsanti su ciascuna riga, per permettere l'eliminazione e la modifica del singolo progetto. Inoltre, potremmo avere un singolo tasto in cima che ci porti alla pagina di creazione del progetto.
 - [x] Proviamo ad aggiungere un controllo: quando l'utente clicca sul pulsante "delete", chiediamo conferma della cancellazione, prima di eliminare l'elemento. Questa operazione possiamo farla a mano con JavaScript o aiutarci con i componenti Bootstrap.
+
+---
+
+### Consegna n. 4
+
+I task da svolgere sono diversi, ma alcuni di essi sono un ripasso di ciò che abbiamo fatto nelle lezioni dei giorni scorsi: 
+
+- [x] Creiamo il modello Type, con relativa migrazione ed un seeder per inserire i types nel Database
+- [x] Creiamo anche la migration per modificare la tabella projects, che dovrà ora contenere la chiave esterna type_id
+- [x] Nei modelli Type e Project, aggiungiamo i metodi per definire la relazione one-to-many
+Nella pagina di dettaglio del progetto, mostriamo il Type a cui il progetto appartiene. Volendo, potremmo anche aggiungere una colonna che indica il tipo nella tabella della pagina Index dei progetti.
+- [x] Nei form di creazione e modifica dei progetti, dobbiamo permettere di associare un type al progetto stesso. Gestiamo inoltre il salvataggio di questa associazione progetto-tipologia nel controller ProjectController
+
+Bonus:
+- [ ] Aggiungere le operazioni CRUD anche per il model Type, in modo da gestire le tipologie di progetto direttamente dal pannello di amministrazione.
+
+---

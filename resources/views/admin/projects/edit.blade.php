@@ -29,6 +29,13 @@
     
         <label for="period">Periodo</label>
         <input type="text" name="period" id="period" class="mb-3"value="{{ $project->period }}">
+
+        <label for="category_id">Categoria</label>
+        <select name="category_id" id="category_id" class="mb-3">
+            @foreach ($categories as $category)
+                <option value="{{ $category->id }}" {{ $project->category_id == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
+            @endforeach
+        </select>
     
         <label for="title">Descrizione</label>
         <textarea type="text" name="description" id="description" width="100%" rows="4" class="mb-3">{{ $project->description }}</textarea>

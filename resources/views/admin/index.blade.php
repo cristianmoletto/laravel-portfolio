@@ -27,7 +27,7 @@
                     </div>
                     <div>
                         <div class="text-muted small">Tecnologie</div>
-                        <div class="fw-bold fs-5">0</div>
+                        <div class="fw-bold fs-5">{{ $categoriesCount }}</div>
                     </div>
                 </div>
             </div>

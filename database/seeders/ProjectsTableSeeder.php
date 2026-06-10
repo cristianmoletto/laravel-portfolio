@@ -14,13 +14,14 @@ class ProjectsTableSeeder extends Seeder
      */
     public function run(Faker $faker): void
     {
-        for ($i=0; $i<20; $i++){
+        for ($i=0; $i<5; $i++){
             $newProject = new Project();
 
             $newProject->title  = $faker->domainWord();
             $newProject->client  = $faker->company();
             $newProject->period  = $faker->dateTimeThisDecade();
             $newProject->description  = $faker->paragraph();
+            $newProject->category_id = rand(1,7);
 
             $newProject->save();
 

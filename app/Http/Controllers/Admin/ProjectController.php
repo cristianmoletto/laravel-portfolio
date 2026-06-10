@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Project;
+use Database\Seeders\CategoriesTableSeeder;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
@@ -22,7 +24,10 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view("admin.projects.create");
+        // prendo le categorie
+        $categories = Category::all();
+
+        return view("admin.projects.create", compact("categories"));
     }
 
     /**
@@ -36,6 +41,7 @@ class ProjectController extends Controller
         $newProject->title = $data['title'];
         $newProject->client = $data['client'];
         $newProject->period = $data['period'];
+        $newProject->category_id = $data['category_id'];
         $newProject->description = $data['description'];
 
         $newProject->save();
@@ -50,6 +56,7 @@ class ProjectController extends Controller
     public function show(Project $project)
     {
         return view('admin.projects.show', compact('project'));
+
     }
 
     /**
@@ -57,7 +64,8 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        return view("admin.projects.edit", compact('project'));
+        $categories = Category::all();
+        return view("admin.projects.edit", compact('project',"categories"));
     }
 
     /**
@@ -70,6 +78,7 @@ class ProjectController extends Controller
         $project->title = $data['title'];
         $project->client = $data['client'];
         $project->period = $data['period'];
+        $project->category_id = $data['category_id'];
         $project->description = $data['description'];
 
         $project->update();

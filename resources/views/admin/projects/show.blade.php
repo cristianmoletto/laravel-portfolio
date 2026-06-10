@@ -17,6 +17,9 @@
     </div>
     <div class="card-body">
         <dl class="row mb-0">
+            <dt class="col-sm-2">Categoria</dt>
+            <dd class="col-sm-10">{{ $project->category?->name ?? 'Nessuna categoria' }}</dd>
+
             <dt class="col-sm-2">Cliente</dt>
             <dd class="col-sm-10">{{ $project->client }}</dd>
 
