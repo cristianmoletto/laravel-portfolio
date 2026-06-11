@@ -26,7 +26,7 @@
                     <li class="nav-item">
                         <a href="{{ route('admin.index') }}"
                            class="nav-link link-light {{ request()->routeIs('admin.index') ? 'active' : '' }}">
-                            <i class="bi bi-speedometer2 me-2"></i> Dashboard
+                            <i class="bi bi-speedometer2 me-2"></i> Analytics
                         </a>
                     </li>
                     <li class="nav-item">

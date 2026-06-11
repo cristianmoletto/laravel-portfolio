@@ -57,6 +57,19 @@ Completiamo il nostro portfolio inserendo anche l'entità Technology, che rappre
 Bonus:
 
 - [ ] Aggiungere le operazioni CRUD anche per il modello Technology, in modo da gestire le tipologie di progetto direttamente dal pannello di amministrazione.
-- [ ] Potremmo modificare i seeder in modo tale da creare già le associazioni tra tecnologia e progetti quando viene popoliamo il database.
+- [x] Potremmo modificare i seeder in modo tale da creare già le associazioni tra tecnologia e progetti quando viene popoliamo il database.
 
 ---
+
+### Consegna n. 6
+
+In questo esercizio dovremo preparare delle API a cui un'app esterna possa agganciarsi per ricevere informazioni sui nostri progetti.
+
+- [x] Innanzitutto, pubblichiamo il file routes/api.php col comando php artisan route:publish api
+- [x] Creiamo poi un controller dedicato alle API dei progetti, col comando php artisan make:controller Api/ProjectController e - - [x] inseriamo all'interno i metodi per restituire l'elenco dei progetti ed un singolo progetto, in formato JSON
+- [x] Testiamo su Postman le nostre due rotte per verificare che restituiscano correttamente i JSON che abbiamo predisposto
+- [x] Predisponiamo le configurazioni CORS di Laravel nel file cors.php per autorizzare l'applicazione esterna ad effettuare delle chiamate al nostro backend. 
+
+Bonus
+- [x] Nome repo: laravel-portfolio-bonus
+Prepariamo (in un repo a parte) una piccola applicazione frontend con React, che  permetta ad un utente non loggato di vedere la lista dei nostri progetti in Home e di poter poi andare a visualizzare il singolo progetto in una pagina di dettaglio, sfruttando le  API prodotte in Laravel!

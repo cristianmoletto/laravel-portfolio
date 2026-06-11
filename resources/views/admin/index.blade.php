@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('page-title', 'Dashboard')
+@section('page-title', 'Pannello')
 
 @section('content')
     <h4 class="mb-4">Benvenuto, {{ Auth::user()->name }}!</h4>
